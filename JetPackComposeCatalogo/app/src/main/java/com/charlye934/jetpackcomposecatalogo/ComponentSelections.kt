@@ -1,5 +1,7 @@
 package com.charlye934.jetpackcomposecatalogo
 
+import androidx.compose.material.Checkbox
+import androidx.compose.material.CheckboxDefaults
 import androidx.compose.material.Switch
 import androidx.compose.material.SwitchDefaults
 import androidx.compose.runtime.Composable
@@ -17,10 +19,36 @@ import androidx.compose.ui.tooling.preview.Preview
 fun MySwitch() {
     var state by rememberSaveable { mutableStateOf(true) }
 
-    Switch(checked = state, onCheckedChange = { state = !state }, colors = SwitchDefaults.colors(
-        uncheckedThumbColor = Color.Red,
-        checkedThumbColor = Color.Green,
-        uncheckedTrackColor = Color.Magenta,
-        checkedTrackColor = Color.Cyan
-    ))
+    Switch(
+        checked = state, onCheckedChange = { state = !state },
+        colors = SwitchDefaults.colors(
+            uncheckedThumbColor = Color.Red,
+            checkedThumbColor = Color.Green,
+            uncheckedTrackColor = Color.Magenta,
+            checkedTrackColor = Color.Cyan,
+            checkedTrackAlpha = 0.1f,
+            uncheckedTrackAlpha = 0.1f,
+            disabledCheckedTrackColor = Color.Yellow,
+            disabledCheckedThumbColor = Color.Yellow
+        )
+    )
+}
+
+@Composable
+fun MyCheckBox() {
+    var state by rememberSaveable { mutableStateOf(false) }
+    Checkbox(
+        checked = state, onCheckedChange = { state = !state },
+        enabled = true,
+        colors = CheckboxDefaults.colors(
+            checkedColor = Color.Red,
+            uncheckedColor = Color.Yellow,
+            checkmarkColor = Color.Blue
+        )
+    )
+}
+
+@Composable
+fun MyCheckBoxWithText(){
+
 }
