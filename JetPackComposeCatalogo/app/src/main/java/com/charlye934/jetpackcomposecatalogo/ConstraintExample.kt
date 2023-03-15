@@ -12,6 +12,7 @@ import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ChainStyle
 import androidx.constraintlayout.compose.ConstraintLayout
 
+@Preview(showBackground = true)
 @Composable
 fun ConstraintExample() {
     ConstraintLayout(
