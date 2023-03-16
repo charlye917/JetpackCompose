@@ -42,57 +42,6 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun MyRadioButton(){
-    Row() {
-        RadioButton(
-            selected = false,
-            onClick = { },
-            colors = RadioButtonDefaults.colors(
-                selectedColor = Color.Red,
-                unselectedColor = Color.Yellow,
-                disabledColor = Color.Green
-            )
-        )
-        Text(text = "Ejemplo 1")
-    }
-}
-
-@Composable
-fun MyRadioButtonList(name: String, onItemSelected: (String) -> Unit){
-    var selected by remember{ mutableStateOf("Carlos")}
-    Column(Modifier.fillMaxWidth()) {
-        Row(Modifier.fillMaxWidth()) {
-            RadioButton(selected = name == "Carlos", onClick = { onItemSelected("Carlos") })
-            Text(text = "Carlos")
-        }
-        Row(Modifier.fillMaxWidth()) {
-            RadioButton(selected = name == "Alberto", onClick = { onItemSelected("Alberto") })
-            Text(text = "Alberto")
-        }
-        Row(Modifier.fillMaxWidth()) {
-            RadioButton(selected = name == "Arteaga", onClick = { onItemSelected("Arteaga") })
-            Text(text = "Arteaga")
-        }
-        Row(Modifier.fillMaxWidth()) {
-            RadioButton(selected = name == "Lira", onClick = { onItemSelected("Lira") })
-            Text(text = "Lira")
-        }
-    }
-}
-
-@Composable
-fun MyTriStatusCheckBox(){
-    var status by rememberSaveable { mutableStateOf(ToggleableState.Off) }
-    TriStateCheckbox(state = status, onClick = {
-        status = when(status){
-            ToggleableState.On -> { ToggleableState.Off}
-            ToggleableState.Off -> { ToggleableState.Indeterminate }
-            ToggleableState.Indeterminate -> { ToggleableState.On }
-        }
-    })
-}
-
-@Composable
 fun GetOption(title: List<String>): List<CheckInfo>{
     return title.map {
         var status by rememberSaveable { mutableStateOf(false) }
